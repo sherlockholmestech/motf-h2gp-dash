@@ -8,14 +8,23 @@
     <script type="module" src="/main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      let start_status = false;
+      function start() {
+        start_status = !start_status;
+        document.getElementById("start").innerText = start_status ? "Stop" : "Start";
+      }
+    </script>
   </head>
 
   <body>
     <div>
       <h1>MOTF H2GP Dashboard</h1>
+      <button id="start" onclick="start()">Start</button>
       <p>Battery Voltage</p>
-      <div style="height: 400px;"><canvas id="acquisitions"></canvas></div>
-      <script type="module" src="acquisitions.js"></script>
+      <div style="height: 450px;"><canvas id="acquisitions"></canvas></div>
+      <script type="module" src="refresh.js"></script>
+      <button id="clear">Clear Data</button>
     </div>
   </body>
 </html>

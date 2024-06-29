@@ -50,6 +50,7 @@ function refresh() {
 			let elapsedSeconds = currentSeconds - initialSeconds;
 			console.log(elapsedSeconds);
 			chartdata.push({ seconds: elapsedSeconds, voltage: Number(data)});
+			document.getElementById("battvoltagetext").innerText = "Battery Voltage: " + data + " V";
 		})
 		.catch(function (error) {
 			console.log(error);

@@ -1,3 +1,4 @@
+const { invoke } = window.__TAURI__.tauri;
 let chartdata = [
 	{ seconds: 0, voltage: 0 },
 ];
@@ -25,7 +26,16 @@ window.addEventListener("DOMContentLoaded", () => {
 		e.preventDefault();
 		clearData();
 	});
+	document.querySelector("#download_data").addEventListener("click", async (e) => {
+		e.preventDefault();
+		download();
+	});
 });
+
+async function download() {
+	await invoke("download", { fileloc: 'battery.json', contents: JSON.stringify(chartdata), homedir: 'sherlock' });
+  }
+  
 
 function clearData() {
 	chartdata = [
@@ -64,7 +74,6 @@ function refresh() {
 		}
 	}
 }
-
 
 
 setInterval(refresh, 1000);

@@ -21,7 +21,18 @@
     <div>
       <h1>MOTF H2GP Dashboard</h1>
       <p id="battvoltagetext">Battery Voltage: 0.00v</p>
-      <div style="height: 450px;"><canvas id="acquisitions"></canvas></div>
+      <p id="battcurrenttext">Battery Current: 0.00A</p>
+      <div style="width:100%;" class="row">
+        <div style="height: 450px; width: 800px;">
+          <canvas id="voltchart"></canvas>
+        </div>
+        <div style="height: 450px; width: 800px;">
+          <canvas id="ampchart"></canvas>
+        </div>
+        <div style="height: 450px; width: 800px;">
+          <canvas id="tempchart"></canvas>
+        </div>
+      </div>
       <script type="module" src="refresh.js"></script>
       <button id="start" onclick="start()">Start</button>
       <button id="clear">Clear Data</button>

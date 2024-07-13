@@ -178,4 +178,4 @@ function refresh() {
   }
 }
 
-setInterval(refresh, 1000);
+setInterval(refresh, 1500);
